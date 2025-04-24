@@ -1,3 +1,3 @@
 @Library('SharedLibrary') _
 
-Builder()
+Test()
