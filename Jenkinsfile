@@ -1,3 +1,0 @@
-@Library('SharedLibrary') _
-
-Test()
