@@ -1,35 +1,17 @@
-FROM alpine:latest
 
-# Instalar dependencias necesarias
-RUN apk add --no-cache \
-    rustup \
-    cargo \
-    clang \
-    llvm \
-    libgcc \
-    musl-dev \
-    make
+# Usa la imagen oficial de Rust como base
+FROM rust:latest
 
-# Instalar Rust
-RUN rustup-init -y && \
-    source $HOME/.cargo/env && \
-    rustup default stable && \
-    rustup component add clippy rustfmt
+# Establece el directorio de trabajo dentro del contenedor
+WORKDIR /usr/src/myapp
 
-# Establecer el directorio de trabajo
-WORKDIR /usr/src/app
+# Copia el resto de los archivos del proyecto al contenedor desde la ruta rust
+COPY ./rust ./
 
-# Copiar el código fuente al contenedor
-COPY . .
-
-# Compilar el código
+# Compila el script de Rust
 RUN cargo build --release
 
-# Ejecutar análisis con Clippy
-RUN cargo clippy -- -D warnings
-
-# Formatear el código con Rustfmt
-RUN cargo fmt --all
-
-# Definir el comando de ejecución
+# Ejecuta el script compilado
 CMD ["./target/release/rust"]
+
+
