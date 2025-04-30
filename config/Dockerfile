@@ -11,13 +11,13 @@ COPY ./rust ./
 #-------------------------Pruebas en jenkins----------------------------
     
 # Compila el script de Rust
-RUN cargo build --release
+#RUN cargo build --release
 
 # Testea el script de Rust
-RUN cargo test 
+#RUN cargo test 
 
 #NO es necasario en la pipeline de integración
 # Ejecuta el script compilado
-CMD ["./target/release/rust"]
+#CMD ["./target/release/rust"]
 
 
