@@ -1,0 +1,15 @@
+name: RustTest
+languaje: rust
+image:
+  - name: rust/latest
+  - rebuild: false
+  - workdir: /usr/src/rustTest
+  - copy: ./rust
+
+test:
+  - activate: True
+  - command: "cargo test"
+
+compilation:
+  - activate: True
+  - command: "cargo build --release"
