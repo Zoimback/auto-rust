@@ -4,7 +4,7 @@ language: rust
 image:
   name: rust/latest
   rebuild: false
-  workdir: /usr/src/rustTest
+  workdir: config/Dockerfile
   copy: ./rust
 
 test:
