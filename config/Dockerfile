@@ -9,14 +9,12 @@ WORKDIR /usr/src/myapp
 COPY ./rust ./
 
 #-------------------------Pruebas en jenkins----------------------------
-
-# Testea el script de Rust
-RUN cargo test 
-
+    
 # Compila el script de Rust
 RUN cargo build --release
 
-
+# Testea el script de Rust
+RUN cargo test 
 
 #NO es necasario en la pipeline de integración
 # Ejecuta el script compilado
