@@ -8,9 +8,17 @@ WORKDIR /usr/src/myapp
 # Copia el resto de los archivos del proyecto al contenedor desde la ruta rust
 COPY ./rust ./
 
+#-------------------------Pruebas en jenkins----------------------------
+
+# Testea el script de Rust
+RUN cargo test 
+
 # Compila el script de Rust
 RUN cargo build --release
 
+
+
+#NO es necasario en la pipeline de integración
 # Ejecuta el script compilado
 CMD ["./target/release/rust"]
 
