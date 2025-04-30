@@ -1,4 +1,4 @@
-name: RustTest
+name: rusttest
 language: rust
 
 image:
