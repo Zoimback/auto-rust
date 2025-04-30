@@ -1,0 +1,25 @@
+name: RustTest
+language: rust
+
+image:
+  name: rust/latest
+  rebuild: false
+  workdir: /usr/src/rustTest
+  copy: ./rust
+
+test:
+  activate: true
+  command: "cargo test"
+
+compilation:
+  activate: true
+  command: "cargo build --release"
+  output: "target/release/rustTest"
+  file: "rust.exe"
+
+deploy:
+  activate: false
+
+lint:
+  activate: true
+  command: "cargo fmt -- --check"
