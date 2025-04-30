@@ -14,7 +14,7 @@ test:
 compilation:
   activate: true
   command: "cargo build --release"
-  output: "target/release/rustTest"
+  path: "/usr/src/myapp/target/release/target/release/rustTest/"
   file: "rust.exe"
 
 deploy:
