@@ -23,3 +23,6 @@ deploy:
 lint:
   activate: true
   command: "cargo fmt -- --check"
+
+delete:
+  activate: false
